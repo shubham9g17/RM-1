@@ -3,7 +3,7 @@ import React from "react";
 function Radio({ data, onChange }) {
   const { name, label, options, value } = data;
   return (
-    <div>
+    <div className={"mb-3"}>
       <label className={"form-label"} htmlFor={name}>
         {label}
       </label>

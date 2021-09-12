@@ -96,19 +96,23 @@ function Form() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        {Fields.map((Field, index) => (
-          <InputField
-            onChange={handleChange}
-            onMultiCheckBoxChange={handleMultiCheckBoxChange}
-            data={Field}
-            key={index}
-          />
-        ))}
-        <button type="submit">Submit</button>
-      </form>
-      {display && <DisplayData data={Fields} />}
+    <div className={"row"}>
+      <div className={"col"}>
+        <form onSubmit={handleSubmit}>
+          {Fields.map((Field, index) => (
+            <InputField
+              onChange={handleChange}
+              onMultiCheckBoxChange={handleMultiCheckBoxChange}
+              data={Field}
+              key={index}
+            />
+          ))}
+          <button className={"btn btn-primary"} type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div className="col">{display && <DisplayData data={Fields} />}</div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 function Input({ data, onChange }) {
   const { name, value, label, type, required } = data;
   return (
-    <div>
+    <div className={"mb-3"}>
       <label className={"form-label"} htmlFor={name}>
         {label}
       </label>

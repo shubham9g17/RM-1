@@ -3,7 +3,7 @@ import React from "react";
 function Select({ data, onChange }) {
   const { name, value, label, options, required } = data;
   return (
-    <div>
+    <div className={"mb-3"}>
       <label className={"form-label"} htmlFor={name}>
         {label}
       </label>
