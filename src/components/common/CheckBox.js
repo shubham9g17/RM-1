@@ -1,7 +1,7 @@
 import React from "react";
 
-function Input({ data, onChange }) {
-  const { name, value, label, type } = data;
+function CheckBox({ data, onChange }) {
+  const { name, value, label } = data;
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -9,12 +9,12 @@ function Input({ data, onChange }) {
       <input
         id={name}
         name={name}
-        value={value}
+        checked={value}
         onChange={onChange}
-        type={type}
+        type={"checkbox"}
       />
     </div>
   );
 }
 
-export default Input;
+export default CheckBox;
