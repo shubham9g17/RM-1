@@ -1,7 +1,7 @@
 import React from "react";
 
 function Input({ data, onChange }) {
-  const { name, value, label, type, required } = data;
+  const { name, value, label, type, required, validator } = data;
   return (
     <div className={"mb-3"}>
       <label className={"form-label"} htmlFor={name}>
@@ -16,6 +16,18 @@ function Input({ data, onChange }) {
         type={type}
         required={required}
       />
+      <div
+        style={
+          value
+            ? value.match(validator)
+              ? { display: "none" }
+              : { display: "contents" }
+            : { display: "none" }
+        }
+        className="invalid-feedback"
+      >
+        Please Enter Valid {label}.
+      </div>
     </div>
   );
 }

@@ -13,6 +13,7 @@ function Form() {
       type: "text",
       value: "",
       required: true,
+      validator: /^[a-z ,.'-]+$/i,
     },
     {
       name: "lastName",
@@ -21,6 +22,7 @@ function Form() {
       type: "text",
       value: "",
       required: false,
+      validator: /^[a-z ,.'-]+$/i,
     },
     {
       name: "email",
@@ -29,6 +31,7 @@ function Form() {
       type: "email",
       value: "",
       required: true,
+      validator: /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/i,
     },
     {
       name: "gender",
@@ -45,6 +48,7 @@ function Form() {
       type: "number",
       value: "",
       required: true,
+      validator: /^\S[0-9]{0,3}$/i,
     },
     {
       name: "maritalStatus",
