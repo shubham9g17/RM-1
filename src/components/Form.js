@@ -3,7 +3,8 @@ import DisplayData from "./DisplayData";
 import InputField from "./InputField";
 import getAllGenders from "./../helpers/getAllGenders";
 
-function Form(props) {
+function Form() {
+  const [display, setDisplay] = useState(false);
   const [Fields, setFields] = useState([
     {
       name: "firstName",
@@ -11,6 +12,7 @@ function Form(props) {
       options: [],
       type: "text",
       value: "",
+      required: true,
     },
     {
       name: "lastName",
@@ -18,6 +20,7 @@ function Form(props) {
       options: [],
       type: "text",
       value: "",
+      required: false,
     },
     {
       name: "email",
@@ -25,13 +28,15 @@ function Form(props) {
       options: [],
       type: "email",
       value: "",
+      required: true,
     },
     {
       name: "gender",
       label: "Gender",
       options: getAllGenders(),
       type: "select",
-      value: "Female",
+      value: "Male",
+      required: true,
     },
     {
       name: "age",
@@ -39,13 +44,14 @@ function Form(props) {
       options: [],
       type: "number",
       value: "",
+      required: true,
     },
     {
       name: "maritalStatus",
       label: "Marital Status",
-      options: ["Maried", "Single"],
+      options: ["Single", "Maried"],
       type: "radio",
-      value: "",
+      value: "Single",
     },
     {
       name: "qualification",
@@ -83,18 +89,26 @@ function Form(props) {
     newFields[index] = newCurrentField;
     setFields(newFields);
   };
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    alert("Form Submitted");
+    setDisplay(true);
+  };
 
   return (
     <div>
-      {Fields.map((Field, index) => (
-        <InputField
-          onChange={handleChange}
-          onMultiCheckBoxChange={handleMultiCheckBoxChange}
-          data={Field}
-          key={index}
-        />
-      ))}
-      <DisplayData />
+      <form onSubmit={handleSubmit}>
+        {Fields.map((Field, index) => (
+          <InputField
+            onChange={handleChange}
+            onMultiCheckBoxChange={handleMultiCheckBoxChange}
+            data={Field}
+            key={index}
+          />
+        ))}
+        <button type="submit">Submit</button>
+      </form>
+      {display && <DisplayData data={Fields} />}
     </div>
   );
 }

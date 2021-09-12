@@ -1,7 +1,7 @@
 import React from "react";
 
 function Radio({ data, onChange }) {
-  const { name, value, label, options } = data;
+  const { name, label, options, value } = data;
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -9,7 +9,13 @@ function Radio({ data, onChange }) {
       {options.map((opt, index) => (
         <div key={index}>
           {opt}:{" "}
-          <input type="radio" name={name} value={value} onChange={onChange} />
+          <input
+            type="radio"
+            name={name}
+            checked={opt === value}
+            value={opt}
+            onChange={onChange}
+          />
           <br />
         </div>
       ))}

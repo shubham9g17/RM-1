@@ -1,7 +1,7 @@
 import React from "react";
 
 function Input({ data, onChange }) {
-  const { name, value, label, type } = data;
+  const { name, value, label, type, required } = data;
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -12,6 +12,7 @@ function Input({ data, onChange }) {
         value={value}
         onChange={onChange}
         type={type}
+        required={required}
       />
     </div>
   );
