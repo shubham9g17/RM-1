@@ -4,12 +4,16 @@ function Radio({ data, onChange }) {
   const { name, label, options, value } = data;
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <br />
+      <label className={"form-label"} htmlFor={name}>
+        {label}
+      </label>
       {options.map((opt, index) => (
-        <div key={index}>
-          {opt}:{" "}
+        <div className={"form-check"} key={index}>
+          <label className={"form-check-label"} htmlFor={opt}>
+            {opt}
+          </label>
           <input
+            className={"form-check-input"}
             type="radio"
             name={name}
             checked={opt === value}

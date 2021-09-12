@@ -4,9 +4,11 @@ function Select({ data, onChange }) {
   const { name, value, label, options, required } = data;
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <br />
+      <label className={"form-label"} htmlFor={name}>
+        {label}
+      </label>
       <select
+        className={"form-select"}
         name={name}
         id={name}
         value={value}

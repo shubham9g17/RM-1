@@ -4,9 +4,11 @@ function Input({ data, onChange }) {
   const { name, value, label, type, required } = data;
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <br />
+      <label className={"form-label"} htmlFor={name}>
+        {label}
+      </label>
       <input
+        className={"form-control"}
         id={name}
         name={name}
         value={value}
